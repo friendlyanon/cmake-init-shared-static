@@ -17,7 +17,6 @@ include(cmake/variables.cmake)
 
 add_library(
     shared_shared
-    include/shared/shared.h
     source/shared.cpp
 )
 add_library(shared::shared ALIAS shared_shared)
