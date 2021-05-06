@@ -26,6 +26,7 @@ generate_export_header(
     shared_shared
     BASE_NAME shared
     EXPORT_FILE_NAME include/shared/shared_export.h
+    CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
 )
 
 if(NOT BUILD_SHARED_LIBS)

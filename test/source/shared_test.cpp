@@ -1,7 +1,9 @@
+#include <string>
+
 #include <shared/shared.h>
 
 int main() {
   exported_class e;
 
-  return e.name() == "shared" ? 0 : 1;
+  return std::string("shared") == e.name() ? 0 : 1;
 }

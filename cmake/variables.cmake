@@ -12,6 +12,14 @@ if(PROJECT_IS_TOP_LEVEL)
   endif()
 endif()
 
+# ---- Suppress C4251 on Windows ----
+
+# Please see include/shared/shared.h for more details
+set(pragma_suppress_c4251 "#define SHARED_SUPPRESS_C4251")
+if(MSVC)
+  string(APPEND pragma_suppress_c4251 [[ _Pragma("warning(suppress:4251)")]])
+endif()
+
 # ---- Warning guard ----
 
 # target_include_directories with the SYSTEM modifier will request the compiler

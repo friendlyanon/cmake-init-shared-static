@@ -4,6 +4,6 @@
 
 exported_class::exported_class() : name_("shared") {}
 
-std::string exported_class::name() {
-  return name_;
+const char* exported_class::name() {
+  return name_.c_str();
 }
