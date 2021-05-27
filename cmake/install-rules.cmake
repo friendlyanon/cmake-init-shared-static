@@ -7,7 +7,7 @@ include(GNUInstallDirs)
 
 install(
     DIRECTORY
-    "${PROJECT_SOURCE_DIR}/include/"
+    include/
     "${PROJECT_BINARY_DIR}/include/"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     COMPONENT shared_Development
@@ -32,16 +32,16 @@ write_basic_package_version_file(
     COMPATIBILITY SameMajorVersion
 )
 
+# Allow package maintainers to freely override the path for the configs
 set(
     shared_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/shared"
     CACHE STRING "CMake package config location relative to the install prefix"
 )
-
 mark_as_advanced(shared_INSTALL_CMAKEDIR)
 
 install(
     FILES
-    "${PROJECT_SOURCE_DIR}/cmake/sharedConfig.cmake"
+    cmake/sharedConfig.cmake
     "${PROJECT_BINARY_DIR}/sharedConfigVersion.cmake"
     DESTINATION "${shared_INSTALL_CMAKEDIR}"
     COMPONENT shared_Development

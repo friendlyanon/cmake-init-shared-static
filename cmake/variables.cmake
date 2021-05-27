@@ -7,9 +7,6 @@
 if(PROJECT_IS_TOP_LEVEL)
   option(shared_DEVELOPER_MODE "Enable developer mode" OFF)
   option(BUILD_SHARED_LIBS "Build shared libs." OFF)
-  if("$ENV{CI}")
-    set(shared_DEVELOPER_MODE ON CACHE INTERNAL "")
-  endif()
 endif()
 
 # ---- Suppress C4251 on Windows ----
