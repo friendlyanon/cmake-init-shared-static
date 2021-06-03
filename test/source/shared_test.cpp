@@ -2,7 +2,8 @@
 
 #include <shared/shared.h>
 
-int main() {
+auto main() -> int
+{
   exported_class e;
 
   return std::string("shared") == e.name() ? 0 : 1;

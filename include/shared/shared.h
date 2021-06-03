@@ -51,7 +51,8 @@
  *
  * Please see the note above for considerations when creating shared libraries.
  */
-class SHARED_EXPORT exported_class {
+class SHARED_EXPORT exported_class
+{
 public:
   /**
    * @brief Initializes the name field to the name of the project
@@ -61,7 +62,7 @@ public:
   /**
    * @brief Returns a non-owning pointer to the string stored in this class
    */
-  const char* name();
+  auto name() -> const char*;
 
 private:
   SHARED_SUPPRESS_C4251

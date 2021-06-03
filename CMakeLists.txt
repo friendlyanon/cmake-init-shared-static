@@ -25,7 +25,7 @@ include(GenerateExportHeader)
 generate_export_header(
     shared_shared
     BASE_NAME shared
-    EXPORT_FILE_NAME include/shared/shared_export.h
+    EXPORT_FILE_NAME export/shared/shared_export.h
     CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
 )
 
@@ -47,7 +47,12 @@ target_include_directories(
     shared_shared ${shared_warning_guard}
     PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
-    "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>"
+)
+
+target_include_directories(
+    shared_shared SYSTEM
+    PUBLIC
+    "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
 )
 
 target_compile_features(shared_shared PUBLIC cxx_std_17)
@@ -81,3 +86,5 @@ option(ENABLE_COVERAGE "Enable coverage support separate from CTest's" OFF)
 if(ENABLE_COVERAGE)
   include(cmake/coverage.cmake)
 endif()
+
+include(cmake/lint-targets.cmake)
