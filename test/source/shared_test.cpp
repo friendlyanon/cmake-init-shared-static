@@ -1,6 +1,6 @@
 #include <string>
 
-#include <shared/shared.h>
+#include <shared/shared.hpp>
 
 auto main() -> int
 {

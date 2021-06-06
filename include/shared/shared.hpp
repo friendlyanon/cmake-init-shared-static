@@ -62,9 +62,9 @@ public:
   /**
    * @brief Returns a non-owning pointer to the string stored in this class
    */
-  auto name() -> const char*;
+  auto name() const -> const char*;
 
 private:
   SHARED_SUPPRESS_C4251
-  std::string name_;
+  std::string m_name;
 };

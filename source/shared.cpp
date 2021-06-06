@@ -1,13 +1,13 @@
 #include <string>
 
-#include <shared/shared.h>
+#include <shared/shared.hpp>
 
 exported_class::exported_class()
-    : name_("shared")
+    : m_name("shared")
 {
 }
 
-auto exported_class::name() -> const char*
+auto exported_class::name() const -> const char*
 {
-  return name_.c_str();
+  return m_name.c_str();
 }
