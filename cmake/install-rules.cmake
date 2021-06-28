@@ -5,6 +5,9 @@ endif()
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
 
+# find_package(<package>) call for consumers to find this project
+set(package shared)
+
 install(
     DIRECTORY
     include/
@@ -28,21 +31,26 @@ install(
 )
 
 write_basic_package_version_file(
-    sharedConfigVersion.cmake
+    "${package}ConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion
 )
 
 # Allow package maintainers to freely override the path for the configs
 set(
-    shared_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/shared"
+    shared_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${package}"
     CACHE STRING "CMake package config location relative to the install prefix"
 )
 mark_as_advanced(shared_INSTALL_CMAKEDIR)
 
 install(
-    FILES
-    cmake/sharedConfig.cmake
-    "${PROJECT_BINARY_DIR}/sharedConfigVersion.cmake"
+    FILES cmake/install-config.cmake
+    DESTINATION "${shared_INSTALL_CMAKEDIR}"
+    RENAME "${package}Config.cmake"
+    COMPONENT shared_Development
+)
+
+install(
+    FILES "${PROJECT_BINARY_DIR}/${package}ConfigVersion.cmake"
     DESTINATION "${shared_INSTALL_CMAKEDIR}"
     COMPONENT shared_Development
 )
