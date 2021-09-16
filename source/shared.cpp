@@ -1,6 +1,6 @@
 #include <string>
 
-#include <shared/shared.hpp>
+#include "shared/shared.hpp"
 
 exported_class::exported_class()
     : m_name("shared")
