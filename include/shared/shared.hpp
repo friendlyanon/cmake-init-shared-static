@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "shared/shared_export.h"
+#include "shared/shared_export.hpp"
 
 /**
  * A note about the MSVC warning C4251:

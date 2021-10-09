@@ -27,7 +27,7 @@ include(GenerateExportHeader)
 generate_export_header(
     shared_shared
     BASE_NAME shared
-    EXPORT_FILE_NAME export/shared/shared_export.h
+    EXPORT_FILE_NAME export/shared/shared_export.hpp
     CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
 )
 
