@@ -46,7 +46,7 @@ set_target_properties(
 )
 
 target_include_directories(
-    shared_shared ${shared_warning_guard}
+    shared_shared ${warning_guard}
     PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 )
