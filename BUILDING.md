@@ -44,4 +44,24 @@ multi-configuration generator, like the Visual Studio ones:
 cmake --install build --config Release
 ```
 
+### CMake package
+
+This project exports a CMake package to be used with the [`find_package`][2]
+command of CMake:
+
+* Package name: `shared`
+* Target name: `shared::shared
+
+Example usage:
+
+```cmake
+find_package(shared REQUIRED)
+# Declare the imported target as a build requirement using PRIVATE
+target_link_libraries(
+    project_target PRIVATE
+    shared::shared
+)
+```
+
 [1]: https://cmake.org/cmake/help/latest/manual/cmake.1.html#install-a-project
+[2]: https://cmake.org/cmake/help/latest/command/find_package.html
