@@ -1,6 +1,7 @@
 #include <string>
 
 #include "shared/shared.hpp"
+
 auto main() -> int
 {
   exported_class e;
