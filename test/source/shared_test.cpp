@@ -4,7 +4,7 @@
 
 auto main() -> int
 {
-  exported_class e;
+  auto const exported = exported_class {};
 
-  return std::string("shared") == e.name() ? 0 : 1;
+  return std::string("shared") == exported.name() ? 0 : 1;
 }
