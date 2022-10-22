@@ -1,5 +1,8 @@
 if(PROJECT_IS_TOP_LEVEL)
-  set(CMAKE_INSTALL_INCLUDEDIR include/shared CACHE PATH "")
+  set(
+      CMAKE_INSTALL_INCLUDEDIR "include/shared-${PROJECT_VERSION}"
+      CACHE PATH ""
+  )
 endif()
 
 include(CMakePackageConfigHelpers)
