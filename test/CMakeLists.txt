@@ -4,7 +4,6 @@ project(sharedTests LANGUAGES CXX)
 
 include(../cmake/project-is-top-level.cmake)
 include(../cmake/folders.cmake)
-include(../cmake/windows-set-path.cmake)
 
 # ---- Dependencies ----
 
@@ -20,7 +19,6 @@ target_link_libraries(shared_test PRIVATE shared::shared)
 target_compile_features(shared_test PRIVATE cxx_std_17)
 
 add_test(NAME shared_test COMMAND shared_test)
-windows_set_path(shared_test shared::shared)
 
 # ---- End-of-file commands ----
 

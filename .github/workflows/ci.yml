@@ -126,6 +126,10 @@ jobs:
       run: cmake "--preset=ci-$("${{ matrix.os }}".split("-")[0])"
         -D BUILD_SHARED_LIBS=${{ matrix.shared }}
 
+    - name: Setup PATH
+      if: matrix.os == 'windows-2022' && matrix.type == 'shared'
+      run: Add-Content "$env:GITHUB_PATH" "$(Get-Location)\build\Release"
+
     - name: Build
       run: cmake --build build --config Release -j 2
 
