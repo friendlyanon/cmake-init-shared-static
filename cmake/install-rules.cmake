@@ -1,8 +1,9 @@
 if(PROJECT_IS_TOP_LEVEL)
   set(
       CMAKE_INSTALL_INCLUDEDIR "include/shared-${PROJECT_VERSION}"
-      CACHE PATH ""
+      CACHE STRING ""
   )
+  set_property(CACHE CMAKE_INSTALL_INCLUDEDIR PROPERTY TYPE PATH)
 endif()
 
 include(CMakePackageConfigHelpers)
@@ -41,8 +42,9 @@ write_basic_package_version_file(
 # Allow package maintainers to freely override the path for the configs
 set(
     shared_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${package}"
-    CACHE PATH "CMake package config location relative to the install prefix"
+    CACHE STRING "CMake package config location relative to the install prefix"
 )
+set_property(CACHE shared_INSTALL_CMAKEDIR PROPERTY TYPE PATH)
 mark_as_advanced(shared_INSTALL_CMAKEDIR)
 
 install(
